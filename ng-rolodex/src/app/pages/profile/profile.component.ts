@@ -7,7 +7,9 @@ import { Component } from '@angular/core';
 })
 
 export class ProfileComponent {
-  title: string = "Profile page";
+  title: string = 'Welcome to your profile!';
+  username: string = 'testUsername';
+  name: string = 'name';
 
   constructor() {
 
