@@ -8,16 +8,16 @@ import { Component } from '@angular/core';
 
 export class LoginComponent {
 
-  title: string = 'Login Page';
+  title: string = 'Please Login';
 
   formData: {
     username: string,
     password: string,
-    class: string,
+    // class: string,
   } = {
-      username: 'May',
+      username: '',
       password: '',
-      class: 'test',
+      // class: 'test',
     };
 
   constructor() {

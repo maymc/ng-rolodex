@@ -1,3 +1,29 @@
-.test{
-  color: red;
+#loginDiv{
+  display: flex;
+  flex-flow: column nowrap;
+  font-family: 'Rajdhani', sans-serif;
+  width: 700px;
+  height: 350px;
+  margin: auto auto;
+  text-align: center;
+  font-size: 1.2em;
+  margin-top: 50px;
+  // border: 1px solid black;
 }
+
+form{
+  input{
+    width: 50%;
+    height: 35px;
+    font-size: 1em;
+    font-family: 'Rajdhani', sans-serif;
+  }
+}
+
+button {
+  height: 30px;
+  width: 50%;
+  font-size: 1em;
+  margin: auto;
+}
+
