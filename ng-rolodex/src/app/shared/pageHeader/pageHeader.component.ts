@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 
 export class PageHeaderComponent {
-  title: string = 'Header Component';
+  title: string = 'ROLODEX';
   constructor() {
 
   }

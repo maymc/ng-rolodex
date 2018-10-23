@@ -1,9 +1,18 @@
 <h1>{{title}}</h1>
 
 <form action="">
+  Username:
   <input type="text" name="username" [(ngModel)]="formData.username">
+  <br><br>
+  Password:
+  <input type="text" name="password" [(ngModel)]="formData.password">
 </form>
 
-{{formData.username}}
+<div [class]="formData.username === 'May' ? 'test' : ''">
+  {{formData.username}}
+</div>
+<br>
+{{formData.password}}
 
-<button (click)="submit()">Submit</button>
+<br>
+<button (click)="submit()" [disabled]="true" [class]="formData.class">Login</button>

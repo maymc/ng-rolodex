@@ -1,0 +1,31 @@
+h1{
+  font-family: 'Orbitron', sans-serif;
+  margin: 15px 0 5px 15px;
+
+}
+
+ul{
+  margin: 0;
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px;
+  background-color: lightsteelblue;
+  box-shadow: 3px 3px 3px 3px lightgray;
+}
+
+li{
+  list-style-type: none;
+  display: inline-block;
+  margin-right: 15px;
+  
+  a{
+    text-decoration: none;
+    color: white;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.2em;
+
+    &:hover{
+      color: steelblue;
+    }
+  }
+}
