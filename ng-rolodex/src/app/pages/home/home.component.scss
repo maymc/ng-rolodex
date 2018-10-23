@@ -1,0 +1,25 @@
+div{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  // border: 1px solid black;
+  height: 350px;
+  width: 700px;
+  margin: auto auto;
+}
+p{
+  font-size: 1.2em;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+input{
+  width: 100%;
+  height: 40px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.2em;
+}
+
+button{
+  font-size: 1.2em;
+  font-family: 'Rajdhani', sans-serif;
+}

@@ -1,10 +1,12 @@
-<h1>{{title}}</h1>
+<div>
+  <p>{{message}}</p>
 
-<form action="">
-  <input type="text" name="searchInput" [(ngModel)]="formData.searchInput">
-</form>
+  <form action="">
+    <input type="text" name="searchInput" autofocus [(ngModel)]="formData.searchInput">
+  </form>
 
-{{formData.searchInput}}
+  {{formData.searchInput}}
 
-<br>
-<button (click)="submit()">Search</button>
+  <br>
+  <button (click)="submit()">Search</button>
+</div>

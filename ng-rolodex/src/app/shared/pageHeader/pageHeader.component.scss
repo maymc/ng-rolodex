@@ -1,16 +1,32 @@
+#page-header{
+  display: flex;
+  flex-flow: row nowrap;
+  background-color: lighten(steelblue, 15%);
+  box-shadow: 3px 3px 3px 3px lightgray;
+}
+
+#page-header-title{
+  height: 100%;
+  margin: auto auto;
+  padding-left: 15px;
+}
+
+#nav{
+  display: flex;
+  justify-content: flex-end;
+  width: 85%;
+  height: 100%;
+  margin: auto auto;
+}
+
 h1{
   font-family: 'Orbitron', sans-serif;
-  margin: 15px 0 5px 15px;
-
+  font-weight: bold;
 }
 
 ul{
   margin: 0;
-  display: flex;
-  justify-content: flex-end;
-  padding: 5px;
-  background-color: lightsteelblue;
-  box-shadow: 3px 3px 3px 3px lightgray;
+  padding-left: 15px;
 }
 
 li{

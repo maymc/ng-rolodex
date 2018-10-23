@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  title: string = "Homepage";
+  message: string = "Search for a contact...";
 
   formData: {
     searchInput: string,
