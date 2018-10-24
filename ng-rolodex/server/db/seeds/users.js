@@ -6,31 +6,22 @@ exports.seed = function (knex, Promise) {
       // Inserts seed entries
       return knex('table_name').insert([
         {
-          username: '',
-          name: '',
-          email: '',
-          address: '',
+          username: 'MickeyMouse',
+          name: 'Mickey',
+          email: 'mickeymouse@disney.com',
+          address: '1111 Disneyland Ave'
         },
-
         {
-          username: '',
-          name: '',
-          email: '',
-          address: '',
+          username: 'MinnieMouse',
+          name: 'Minnie',
+          email: 'minniemouse@disney.com',
+          address: '2222 Castle St.'
         },
-
         {
-          username: '',
-          name: '',
-          email: '',
-          address: '',
-        },
-
-        {
-          username: '',
-          name: '',
-          email: '',
-          address: '',
+          username: 'DonaldDuck',
+          name: 'Donald',
+          email: 'donaldduck@disney.com',
+          address: '3333 Quackers Place'
         },
 
       ]);
