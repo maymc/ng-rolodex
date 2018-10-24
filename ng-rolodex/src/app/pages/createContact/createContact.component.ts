@@ -7,9 +7,33 @@ import { Component } from '@angular/core';
 })
 
 export class CreateContactComponent {
-  title: string = "Create Contact Page";
+  formData: {
+    name: string,
+    address: string,
+    mobile: string,
+    work: string,
+    home: string,
+    email: string,
+    twitter: string,
+    instagram: string,
+    github: string
+  } = {
+      name: '',
+      address: '',
+      mobile: '',
+      work: '',
+      home: '',
+      email: '',
+      twitter: '',
+      instagram: '',
+      github: ''
+    }
 
   constructor() {
 
+  }
+
+  createContact() {
+    console.log(this.formData);
   }
 }

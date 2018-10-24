@@ -1,0 +1,64 @@
+div{
+  // display: flex;
+  // flex-flow: row wrap;
+  font-family: 'Rajdhani', sans-serif;
+  // text-align: center;
+  font-size: 1.1em;
+  width: 700px;
+  margin: auto;
+}
+
+#container {
+  border-radius: 5px;
+  background-color: #d0f0ff;
+  padding: 20px;
+  height: 575px;
+}
+
+.rowHeader {
+  float: left;
+  width: 20%;
+}
+
+.rowData {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+input{
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  font-size: 0.7em;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+button {
+  background-color: rgb(62, 149, 175);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+  font-size: 0.8em;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
