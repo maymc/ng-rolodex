@@ -1,12 +1,30 @@
 div{
-  display: flex;
-  flex-flow: column nowrap;
+  // display: flex;
+  // flex-flow: column nowrap;
   font-family: 'Rajdhani', sans-serif;
-  width: 700px;
-  height: 350px;
-  margin: auto auto;
+  // width: 700px;
+  height: 500px;
+  // margin: auto auto;
   text-align: center;
-  font-size: 1.2em;
-  margin-top: 50px;
+  font-size: 1.4em;
+  // margin-top: 50px;
+  border: 1px solid black;
 }
 
+table, tr, td{
+  width: 50%;
+  margin: auto;
+  // border: 1px solid black;
+  // border-collapse: collapse;
+  text-align: center;
+  padding: 10px;
+}
+
+button{
+  margin-top: 20px;
+  height: 30px;
+  width: 20%;
+  font-size: 1em;
+  // margin: auto;
+  font-family: 'Rajdhani', sans-serif;
+}

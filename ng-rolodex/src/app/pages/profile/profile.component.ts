@@ -8,10 +8,21 @@ import { Component } from '@angular/core';
 
 export class ProfileComponent {
   title: string = 'Welcome to your profile!';
-  username: string = 'testUsername';
-  name: string = 'name';
+  username: string = 'maymc';
+  name: string = 'May';
+  email: string = 'maychen@hawaii.edu';
+  address: string = '1234 SomeAddress St.';
 
   constructor() {
+
+  }
+
+  editProfile() {
+    console.log(this.username);
+    console.log(this.name);
+    console.log(this.email);
+    console.log(this.address);
+
 
   }
 }

@@ -1,6 +1,25 @@
 <div>
   <h1>{{title}}</h1>
-  <p>Username: {{username}}</p>
-  <p>Name: {{name}}</p>
+
+  <table>
+    <tr>
+      <td class="rowHeader">Username</td>
+      <td>{{username}}</td>
+    </tr>
+    <tr>
+      <td class="rowHeader">Name</td>
+      <td>{{name}}</td>
+    </tr>
+    <tr>
+      <td class="rowHeader">Email</td>
+      <td>{{email}}</td>
+    </tr>
+    <tr>
+      <td class="rowHeader">Address</td>
+      <td>{{address}}</td>
+    </tr>
+  </table>
+
+  <button (click)="editProfile()">Edit Profile</button>
 
 </div>

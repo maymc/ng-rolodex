@@ -24,7 +24,7 @@ export class LoginComponent {
 
   }
 
-  submit() {
+  login() {
     console.log(this.formData);
   }
 }

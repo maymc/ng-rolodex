@@ -4,10 +4,10 @@
 
   <form action="">
     *Username:<br>
-    <input type="text" name="username" [(ngModel)]="formData.username" autofocus>
+    <input type="text" name="username" required [(ngModel)]="formData.username" autofocus>
     <br><br>
     *Password:<br>
-    <input type="text" name="password" [(ngModel)]="formData.password">
+    <input type="text" name="password" required [(ngModel)]="formData.password">
   </form>
 
   <!-- <div [class]="formData.username === 'May' ? 'test' : ''">
@@ -16,5 +16,5 @@
   <br>
   {{formData.password}} -->
 
-  <button (click)="submit()" [class]="formData.class">Login</button>
+  <button (click)="login()" [class]="formData.class">Login</button>
 </div>
