@@ -4,15 +4,21 @@ import { NgModule } from '@angular/core';
 //Allows angular to work with forms
 import { FormsModule } from '@angular/forms';
 
+//Brings http system into client
+import { HttpClientModule } from '@angular/common/http';
+
+//Routing Page Components
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { PageHeaderComponent } from './shared/pageHeader/pageHeader.component';
 import { ContactsComponent } from './pages/contacts/contacts.component';
 import { CreateContactComponent } from './pages/createContact/createContact.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+
+//Backend Service
+import { BackendService } from './services/backend.services';
 
 @NgModule({
   declarations: [
@@ -22,14 +28,18 @@ import { ProfileComponent } from './pages/profile/profile.component';
     PageHeaderComponent,
     ContactsComponent,
     CreateContactComponent,
-    ProfileComponent
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    BackendService
+  ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
