@@ -1,25 +1,44 @@
 <div>
   <h1>{{title}}</h1>
 
-  <table>
-    <tr>
-      <td class="rowHeader">Username</td>
-      <td>{{username}}</td>
-    </tr>
-    <tr>
-      <td class="rowHeader">Name</td>
-      <td>{{name}}</td>
-    </tr>
-    <tr>
-      <td class="rowHeader">Email</td>
-      <td>{{email}}</td>
-    </tr>
-    <tr>
-      <td class="rowHeader">Address</td>
-      <td>{{address}}</td>
-    </tr>
-  </table>
+  <div id="container">
+    <form action="">
+      <div class="row">
+        <div class="rowHeader">
+          <label>username:</label>
+        </div>
+        <div class="rowData">
+          <input type="text" name="username" placeholder={{username}}>
+        </div>
+      </div>
+      <div class="row">
+        <div class="rowHeader">
+          <label>name:</label>
+        </div>
+        <div class="rowData">
+          <input type="text" name="name" placeholder={{name}}>
+        </div>
+      </div>
+      <div class="row">
+        <div class="rowHeader">
+          <label>email:</label>
+        </div>
+        <div class="rowData">
+          <input type="text" name="email" placeholder={{email}}>
+        </div>
+      </div>
+      <div class="row">
+        <div class="rowHeader">
+          <label>address:</label>
+        </div>
+        <div class="rowData">
+          <input type="text" name="address" placeholder={{address}}>
+        </div>
+      </div>
 
-  <button (click)="editProfile()">Edit Profile</button>
+    </form>
+    <button (click)="editProfile()">Edit Profile</button>
+  </div>
+
 
 </div>
