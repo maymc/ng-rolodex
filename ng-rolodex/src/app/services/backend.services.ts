@@ -24,7 +24,7 @@ export class BackendService {
   }
 
   //Allows us take in something and push it into characters
-  addCharacter(character) {
+  addPeople(character) {
     this.characters.push(character);
   }
 
