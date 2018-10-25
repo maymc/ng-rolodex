@@ -1,1 +1,16 @@
-<h1>{{title}}</h1>
+<div class="contactPage">
+
+  <div class="contactPage-header">
+    <h1>{{title}}</h1>
+  </div>
+
+  <div class="contactCard" *ngFor="let char of characters">
+    <p class="charName">{{char.name}}</p>
+    {{char.height}}<br>
+    {{char.mass}}<br>
+    {{char.hair_color}}<br>
+    {{char.skin_color}}<br>
+    {{char.birth_year}}<br>
+    {{char.eye_color}}
+  </div>
+</div>

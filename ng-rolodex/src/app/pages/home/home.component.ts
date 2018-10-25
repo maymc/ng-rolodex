@@ -27,15 +27,15 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
 
     //when component first starts, asks if can get this array and puts it into my copy of empoty characters. The two empty arrays are the same thing. Component and service both see any changes
-    this.characters = this.backend.characters;
+    // this.characters = this.backend.characters;
 
-    this.backend.addCharacter({ name: 'may' });
-    this.characters.push({ name: 'bob' });
+    // this.backend.addCharacter({ name: 'may' });
+    // this.characters.push({ name: 'bob' });
 
-    this.backend.getPeople(3)
-      .then(data => {
-        console.log("getPeople - data:", data);
-      })
+    // this.backend.getPeople(3)
+    //   .then(data => {
+    //     console.log("getPeople - data:", data);
+    //   })
   }
 
   submit() {

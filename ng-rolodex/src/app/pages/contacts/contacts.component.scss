@@ -1,0 +1,25 @@
+.contactPage{
+  display: flex;
+  flex-flow: row wrap;
+  width: 50%;
+  margin: auto;
+  border: 1px solid black;
+}
+
+.contactPage-header{
+  width: 100%;
+}
+
+.contactCard{
+  border: 1px solid black;
+  width: 300px;
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 5px;
+  font-family: 'Rajdhani', sans-serif;
+  background-color: #d0f0ff;
+}
+
+.charName{
+  border-bottom: 1px dotted black;
+}
