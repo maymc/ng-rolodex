@@ -20,11 +20,11 @@ export class SessionService {
         this.user = JSON.parse(userString);
       }
       else {
-        console.log("user was not found");
+        console.log("User not found.");
       }
     }
     catch (err) {
-      console.log('could not parse user');
+      console.log('Unable to parse user.');
     }
   }
 

@@ -25,9 +25,9 @@ export class LoginComponent {
 
   constructor(private auth: AuthService) { }
   login() {
-    console.log(this.formData);
+    console.log("this.formData:", this.formData);
     this.auth.login(this.formData)
-      .then(() => {
+      .then((res) => {
         console.log('User logged in');
       })
       .catch(err => {
