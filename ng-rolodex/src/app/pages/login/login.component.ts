@@ -56,5 +56,9 @@ export class LoginComponent {
       this.validPassword = true;
     }
   }
+
+  isDisabled() {
+    return !this.validUsername || !this.validPassword;
+  }
 }
 
