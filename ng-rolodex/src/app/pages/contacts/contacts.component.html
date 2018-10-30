@@ -4,13 +4,28 @@
     <h1>{{title}}</h1>
   </div>
 
-  <div class="contactCard" *ngFor="let char of characters">
+  <!-- <div class="contactCard" *ngFor="let char of characters">
     <p class="charName">{{char.name}}</p>
-    {{char.height}}<br>
-    {{char.mass}}<br>
-    {{char.hair_color}}<br>
-    {{char.skin_color}}<br>
-    {{char.birth_year}}<br>
-    {{char.eye_color}}
+    height: {{char.height}}<br>
+    mass: {{char.mass}}<br>
+    hair color: {{char.hair_color}}<br>
+    skin color: {{char.skin_color}}<br>
+    birth year: {{char.birth_year}}<br>
+    eye color: {{char.eye_color}}
+  </div> -->
+
+  <div class="contactCard" *ngFor="let char of contacts">
+    <p class="charName">{{char.name}}</p>
+    address: {{char.address}}<br>
+    mobile: {{char.mobile}}<br>
+    work: {{char.work}}<br>
+    home: {{char.home}}<br>
+    email: {{char.email}}<br>
+    twitter: {{char.twitter}}<br>
+    instagram: {{char.instagram}}<br>
+    github: {{char.github}}<br>
   </div>
+
+
+
 </div>

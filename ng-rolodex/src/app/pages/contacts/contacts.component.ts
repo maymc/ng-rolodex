@@ -10,24 +10,33 @@ import { BackendService } from '../../services/backend.services';
 export class ContactsComponent implements OnInit {
   title: string = "Contacts";
 
-  characters: any[];
+  // characters: any[];
+  contacts: any[];
 
   constructor(private backend: BackendService) {
 
   }
 
   ngOnInit() {
-    this.characters = this.backend.characters;
+    this.contacts = this.backend.contacts;
+    console.log("FRONT - this.contacts:", this.contacts);
+    console.log("FRONT - this.backend.contacts:", this.backend.contacts);
 
     // this.backend.addPeople({ name: 'may' });
     // this.characters.push({ name: 'bob' });
 
-    for (let i = 0; i <= 10; i++) {
-      this.backend.getPeople(i)
-        .then(data => {
-          console.log("getPeople - data:", data);
-          this.characters.push(data);
-        })
-    }
+    // for (let i = 0; i <= 10; i++) {
+    //   this.backend.getPeople(i)
+    //     .then(data => {
+    //       console.log("getPeople - data:", data);
+    //       this.characters.push(data);
+    //     })
+    // }
+
+    this.backend.getAllContacts();
+
+    this.contacts.forEach(element => {
+      console.log("Contact:", element);
+    })
   }
 }
