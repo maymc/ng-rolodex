@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../../services/auth.services';
 
 @Component({
   selector: 'profile-page',
@@ -18,6 +19,7 @@ export class ProfileComponent {
   }
 
   editProfile() {
+    console.log(AuthService);
     console.log(this.username);
     console.log(this.name);
     console.log(this.email);

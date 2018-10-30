@@ -27,7 +27,7 @@ export class LoginComponent {
   login() {
     console.log("this.formData:", this.formData);
     this.auth.login(this.formData)
-      .then((res) => {
+      .then(() => {
         console.log('User logged in');
       })
       .catch(err => {
