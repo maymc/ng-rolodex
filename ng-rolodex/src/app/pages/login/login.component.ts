@@ -20,12 +20,41 @@ export class LoginComponent {
       // class: 'test',
     };
 
+  validUsername: boolean = false;
+  validPassword: boolean = false;
+
   constructor() {
 
   }
 
   login() {
     console.log(this.formData);
+  }
+
+  validateUsername() {
+    console.log('\nValidating username...')
+    if (!this.formData.username) {
+      this.validUsername = false;
+    }
+    else if (this.formData.username.length < 3) {
+      this.validUsername = false;
+    }
+    else {
+      this.validUsername = true;
+    }
+  }
+
+  validatePassword() {
+    console.log('\nValidating password...')
+    if (!this.formData.password) {
+      this.validPassword = false;
+    }
+    else if (this.formData.password.length < 8) {
+      this.validPassword = false;
+    }
+    else {
+      this.validPassword = true;
+    }
   }
 }
 
