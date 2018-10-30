@@ -62,7 +62,7 @@ export class BackendService {
   // }
 
   getAllContacts() {
-    console.log("backend - getAllCharacters:", this.contacts);
+    console.log("backend - getAllContacts:", this.contacts);
     return this.contacts;
   }
 

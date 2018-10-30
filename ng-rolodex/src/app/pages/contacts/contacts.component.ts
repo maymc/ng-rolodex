@@ -33,8 +33,10 @@ export class ContactsComponent implements OnInit {
     //     })
     // }
 
+    this.backend.getAllContacts();
+
     this.contacts.forEach(element => {
-      console.log(element);
+      console.log("Contact:", element);
     })
   }
 }
