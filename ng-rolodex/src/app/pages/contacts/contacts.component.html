@@ -14,7 +14,7 @@
     eye color: {{char.eye_color}}
   </div> -->
 
-  <div class="contactCard" *ngFor="let char of contacts">
+  <!-- <div class="contactCard" *ngFor="let char of contacts">
     <p class="charName">{{char.name}}</p>
     address: {{char.address}}<br>
     mobile: {{char.mobile}}<br>
@@ -24,8 +24,41 @@
     twitter: {{char.twitter}}<br>
     instagram: {{char.instagram}}<br>
     github: {{char.github}}<br>
+  </div> -->
+  <div class="contactCard" *ngFor="let char of contacts">
+    <p class="charName">{{char.name}}</p>
+    <div class="rowHeader">
+      <label>name:</label>
+      <input type="text" name="name" [(ngModel)]="char.address" placeholder="address">
+    </div>
+    <div class="rowHeader">
+      <label>mobile:</label>
+      <input type="text" name="name" [(ngModel)]="char.mobile" placeholder="mobile">
+    </div>
+    <div class="rowHeader">
+      <label>work:</label>
+      <input type="text" name="name" [(ngModel)]="char.work" placeholder="work">
+    </div>
+    <div class="rowHeader">
+      <label>home:</label>
+      <input type="text" name="name" [(ngModel)]="char.home" placeholder="home">
+    </div>
+    <div class="rowHeader">
+      <label>email:</label>
+      <input type="text" name="name" [(ngModel)]="char.email" placeholder="email">
+    </div>
+    <div class="rowHeader">
+      <label>twitter:</label>
+      <input type="text" name="name" [(ngModel)]="char.twitter" placeholder="twitter">
+    </div>
+    <div class="rowHeader">
+      <label>instagram:</label>
+      <input type="text" name="name" [(ngModel)]="char.instagram" placeholder="instagram">
+    </div>
+    <div class="rowHeader">
+      <label>github:</label>
+      <input type="text" name="name" [(ngModel)]="char.github" placeholder="github">
+    </div>
   </div>
-
-
 
 </div>
