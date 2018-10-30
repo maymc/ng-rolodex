@@ -10,6 +10,8 @@
 
     *Password:<br>
     <input type="password" name="password" required [(ngModel)]="formData.password" (keyup)="validatePassword()">
+
+    {{ loginFormData | json}}
   </form>
 
   <!-- <div [class]="formData.username === 'May' ? 'test' : ''">
@@ -24,5 +26,6 @@
   <button (click)="login()" class="btn-submit" [disabled]="isDisabled()">
     Login
   </button>
+
 
 </div>
