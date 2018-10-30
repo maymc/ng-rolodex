@@ -6,20 +6,25 @@
     *Username:<br>
     <input type="text" name="username" required [(ngModel)]="formData.username" autofocus (keyup)="validateUsername()">
     <br><br>
+
     *Password:<br>
     <input type="password" name="password" required [(ngModel)]="formData.password" (keyup)="validatePassword()">
+
+    {{ loginFormData | json}}
   </form>
 
   <!-- <div [class]="formData.username === 'May' ? 'test' : ''">
     {{formData.username}}
-  </div>
-  <br>
-  {{formData.password}} -->
-
+    </div>
+    <br>
+    {{formData.password}} -->
   <!-- <button (click)="login()" [class]="formData.class" [disabled]="!validUsername">
     Login
-  </button> -->
+    </button> -->
+
   <button (click)="login()" class="btn-submit" [disabled]="isDisabled()">
     Login
   </button>
+
+
 </div>

@@ -6,11 +6,17 @@
 
   <div id="nav">
     <ul>
-      <li><a routerLink="/">Home</a></li>
-      <li><a routerLink="/contacts">View All Contacts</a></li>
-      <li><a routerLink="/createContact">Create Contacts</a></li>
-      <li><a routerLink="/profile">My Profile</a></li>
-      <li><a routerLink="/login">Login</a></li>
+      <li class="logged-in" *ngIf="isLoggedIn()">
+        Welcome {{user.username}} !
+        <button (click)="logout()">Log Out</button>
+      </li>
+      <br>
+      <li *ngIf="isLoggedIn()"><a routerLink="/">Home</a></li>
+      <li *ngIf="isLoggedIn()"><a routerLink="/contacts">View All Contacts</a></li>
+      <li *ngIf="isLoggedIn()"><a routerLink="/createContact">Create Contacts</a></li>
+      <li *ngIf="isLoggedIn()"><a routerLink="/profile">My Profile</a></li>
+      <li *ngIf=!user.loggedIn><a routerLink="/login" (click)="login()">Login</a></li>
+
     </ul>
   </div>
 </div>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../../services/auth.services';
 
 @Component({
   selector: 'login-page',
@@ -7,7 +8,6 @@ import { Component } from '@angular/core';
 })
 
 export class LoginComponent {
-
   title: string = 'Please Login';
 
   formData: {
@@ -23,12 +23,16 @@ export class LoginComponent {
   validUsername: boolean = false;
   validPassword: boolean = false;
 
-  constructor() {
-
-  }
-
+  constructor(private auth: AuthService) { }
   login() {
-    console.log(this.formData);
+    console.log("this.formData:", this.formData);
+    this.auth.login(this.formData)
+      .then((res) => {
+        console.log('User logged in');
+      })
+      .catch(err => {
+        console.log('error:', err);
+      })
   }
 
   validateUsername() {
@@ -60,5 +64,5 @@ export class LoginComponent {
   isDisabled() {
     return !this.validUsername || !this.validPassword;
   }
-}
 
+}

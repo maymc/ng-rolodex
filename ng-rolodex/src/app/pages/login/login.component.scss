@@ -1,4 +1,4 @@
-#loginDiv{
+#loginDiv {
   display: flex;
   flex-flow: column nowrap;
   font-family: 'Rajdhani', sans-serif;
@@ -10,9 +10,9 @@
   margin-top: 50px;
   // border: 1px solid black;
 }
-
-form{
-  input{
+  
+form {
+  input {
     width: 50%;
     height: 35px;
     font-size: 1em;
@@ -36,11 +36,13 @@ button {
   cursor: pointer;
   transition: background-color 0.5s ease-out;
 
-  &:disabled{
-    background-color: lightgray;
+  &:disabled {
+  background-color: lightgray;
   }
+
 }
 
 button:hover {
-  background-color: rgb(114, 187, 209);
+background-color: rgb(114, 187, 209);
 }
+  

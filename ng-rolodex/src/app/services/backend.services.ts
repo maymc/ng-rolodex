@@ -75,4 +75,16 @@ export class BackendService {
     this.contacts.push(contacts);
   }
 
+  register(data) {
+    return Promise.resolve({});
+  }
+
+  login(data) {
+    return Promise.resolve({ username: data.username });
+  }
+
+  logout() {
+    return Promise.resolve({});
+  }
+
 }
