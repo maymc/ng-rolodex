@@ -55,8 +55,32 @@ app.get('/api/contacts/search/:term?user=:id', (req, res) => {
 
 //POST - /api/contacts - create & respond with a new contact
 app.post('/api/contacts', (req, res) => {
-  console.log("--> Server POST /api/contacts");
+  console.log("\n--> Server POST /api/contacts");
   res.json("--> Server POST /api/contacts");
+
+  console.log("\nPOST - req.body:\n", req.body);
+  const newContact = {
+    id: req.body.id,
+    name: req.body.name,
+    address: req.body.address,
+    mobile: req.body.mobile,
+    work: req.body.work,
+    home: req.body.home,
+    email: req.body.email,
+    twitter: req.body.twitter,
+    instagram: req.body.instagram,
+    github: req.body.github
+  }
+  console.log("\nnewContact:\n", newContact);
+  // Contacts
+  //   .forge(newContact
+  //     .save()
+  //     .then(() => {
+  //       res.redirect('/');
+  //     })
+  //     .catch(err => {
+  //       console.log('POST - adding new contact', err)
+  //     })
 })
 
 //GET - /api/contacts/:id - respond w/ the contact that matches this id
