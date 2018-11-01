@@ -4,8 +4,8 @@ const express = require("express");
 const app = express();
 const PORT = process.env.EXPRESS_CONTAINER_PORT || 7000;
 const bodyParser = require("body-parser");
-const session = require('express-session');
-const RedisStore = require('connect-redis')(session);
+// const session = require('express-session');
+// const RedisStore = require('connect-redis')(session);
 
 //Import in the Tasks model
 // const Tasks = require('./db/models/tasks_table.js');
