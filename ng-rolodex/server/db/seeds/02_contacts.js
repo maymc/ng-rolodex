@@ -13,7 +13,8 @@ exports.seed = function (knex, Promise) {
           email: 'bob@gmail.com',
           twitter: '@bobbb',
           instagram: '@bobbb',
-          github: '@bobbb'
+          github: '@bobbb',
+          created_by: 1
         },
         {
           name: 'Bill',
@@ -24,7 +25,8 @@ exports.seed = function (knex, Promise) {
           email: 'bill@gmail.com',
           twitter: '@billl',
           instagram: '@billl',
-          github: '@billl'
+          github: '@billl',
+          created_by: 2
         },
         {
           name: 'Sally',
@@ -35,7 +37,8 @@ exports.seed = function (knex, Promise) {
           email: 'sally@gmail.com',
           twitter: '@sallyyy',
           instagram: '@sallyyy',
-          github: '@sallyyy'
+          github: '@sallyyy',
+          created_by: 3
         },
         {
           name: 'Paul',
@@ -46,7 +49,8 @@ exports.seed = function (knex, Promise) {
           email: 'Paul@gmail.com',
           twitter: '@paul',
           instagram: '@paul',
-          github: '@paul'
+          github: '@paul',
+          created_by: 1
         },
         {
           name: 'Kacie',
@@ -57,7 +61,8 @@ exports.seed = function (knex, Promise) {
           email: 'kacie@gmail.com',
           twitter: '@kacieee',
           instagram: '@kacieee',
-          github: '@kacieee'
+          github: '@kacieee',
+          created_by: 2
         },
 
       ]);
