@@ -5,4 +5,4 @@ const Users = bookshelf.Model.extend({
   idAttribute: 'id'
 })
 
-module.exports = Users
+module.exports = Users;

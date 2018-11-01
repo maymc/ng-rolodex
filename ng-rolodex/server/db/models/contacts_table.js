@@ -5,4 +5,4 @@ const Contacts = bookshelf.Model.extend({
   idAttribute: 'id'
 })
 
-module.exports = Contacts
+module.exports = Contacts;
