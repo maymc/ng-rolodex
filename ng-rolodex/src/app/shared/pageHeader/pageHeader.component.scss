@@ -16,7 +16,7 @@
   justify-content: flex-end;
   width: 85%;
   height: 100%;
-  margin: auto auto;
+  // margin: auto auto;
 }
 
 h1{
@@ -44,4 +44,30 @@ li{
       color: steelblue;
     }
   }
+}
+
+.logged-in{
+  width: 100%;
+  color: white;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.2em;
+  text-align: right;
+  margin: 10px 0 5px 0;
+}
+
+button {
+  width: 20%;
+  font-size: .7em;
+  margin: auto 15px;
+  background-color: white;
+  color:black;
+  padding: 2px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 2px 2px 0 gray;
+}
+
+button:hover {
+background-color: rgb(114, 187, 209);
 }

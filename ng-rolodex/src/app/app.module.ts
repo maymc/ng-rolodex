@@ -17,8 +17,10 @@ import { ContactsComponent } from './pages/contacts/contacts.component';
 import { CreateContactComponent } from './pages/createContact/createContact.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 
-//Backend Service
+//Setup for BackendService, SessionService, AuthService
 import { BackendService } from './services/backend.services';
+import { SessionService } from './services/session.services';
+import { AuthService } from './services/auth.services';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { BackendService } from './services/backend.services';
     HttpClientModule
   ],
   providers: [
-    BackendService
+    BackendService,
+    SessionService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
