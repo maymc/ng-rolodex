@@ -5,7 +5,7 @@
     "migrate": "POSTGRES_HOSTNAME=localhost POSTGRES_CONTAINER_PORT=5432 npx knex --knexfile ./server/knexfile.js migrate:latest",
     "seed": "POSTGRES_HOSTNAME=localhost POSTGRES_CONTAINER_PORT=5432 npx knex --knexfile ./server/knexfile.js seed:run",
     "ng": "ng",
-    "start": "ng serve",
+    "start": "npm rebuild node-sass & ng serve --host 0.0.0.0 & npx nodemon ./server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
