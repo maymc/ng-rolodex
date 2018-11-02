@@ -102,15 +102,38 @@ app.post('/api/login', (req, res) => {
 
 // //POST - /api/logout - log out user
 // app.post('/api/logout', (req, res) => {
-//   console.log("--> Server POST /api/logout");
-//   res.json("--> Server POST /api/logout");
+//   console.log("\n--> Server POST /api/logout");
+
+
 // })
 
-// //POST - /api/register - register a new user with application
-// app.post('/api/register', (req, res) => {
-//   console.log("--> Server POST /api/register");
-//   res.json("--> Server POST /api/register");
-// })
+//POST - /api/register - register a new user with application
+app.post('/api/register', (req, res) => {
+  console.log("\n--> Server POST /api/register");
+  console.log("\nPOST - Register - req.body:\n", req.body);
+
+  const newUser = {
+    username: req.body.username,
+    name: req.body.name,
+    email: req.body.email,
+    address: req.body.address
+  }
+
+  console.log("\nPOST - newUser check:\n", newUser);
+
+  Users
+    .forge(newUser)
+    .save()
+    .then((results) => {
+      console.log("\nPOST - register - New User added!");
+      res.json(results)
+    })
+    .catch(err => {
+      console.log("Backend - POST /api/register - ERROR");
+      res.json("Unable to register new user");
+    })
+
+})
 
 // //GET - /api/contacts?user=:id - respond w/ all contacts for the logged in user
 // app.get('/api/contacts?user=:id', (req, res) => {
