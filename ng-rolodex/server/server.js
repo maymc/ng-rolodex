@@ -216,11 +216,41 @@ app.get('/api/contacts/:id', (req, res) => {
     })
 })
 
-// //PUT - /api/contacts/:id - update & respond w/updated contact
-// app.put('/api/contacts/:id', (req, res) => {
-//   console.log("--> Server PUT /api/contacts/:id");
-//   res.json("--> Server PUT /api/contacts/:id");
-// })
+//PUT - /api/contacts/:id - update & respond w/updated contact
+app.put('/api/contacts/:id', (req, res) => {
+  console.log("\n--> Server PUT /api/contacts/:id");
+  console.log("\nPUT - Update contact - req.params:", req.params);
+  console.log("\nPUT - Update contact - req.body:\n", req.body);
+
+  const { id } = req.params;
+  console.log("\nCheck id:", id);
+
+  const updatedContact = {
+    name: req.body.name,
+    address: req.body.address,
+    mobile: req.body.mobile,
+    work: req.body.work,
+    home: req.body.home,
+    email: req.body.email,
+    twitter: req.body.twitter,
+    instagram: req.body.instagram,
+    github: req.body.github,
+    created_by: req.body.created_by
+  }
+
+  Contacts
+    .where('id', id)
+    .fetch()
+    .then(contactData => {
+      console.log("\nPUT - contactData:\n", contactData);
+      contactData.save(updatedContact);
+      res.json(contactData);
+    })
+    .catch(err => {
+      console.log("\nPUT /api/contacts/:id - ERROR");
+      res.json("Unable to update contact data");
+    })
+})
 
 // //DELETE - /api/contacts/:id - delete contact that matches given id, respond with Status 200 OK
 // app.delete('/api/contacts/:id', (req, res) => {
