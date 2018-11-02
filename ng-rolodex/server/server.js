@@ -129,7 +129,7 @@ app.post('/api/register', (req, res) => {
       res.json(results)
     })
     .catch(err => {
-      console.log("Backend - POST /api/register - ERROR");
+      console.log("POST /api/register - ERROR");
       res.json("Unable to register new user");
     })
 
@@ -163,41 +163,58 @@ app.get('/api/contacts/user/:id', (req, res) => {
 //   res.json("--> Server GET /api/contacts/search/:term?user=:id");
 // })
 
-// //POST - /api/contacts - create & respond with a new contact
-// app.post('/api/contacts', (req, res) => {
-//   console.log("\n--> Server POST /api/contacts");
-//   res.json("--> Server POST /api/contacts");
+//POST - /api/contacts - create & respond with a new contact
+app.post('/api/contacts', (req, res) => {
+  console.log("\n--> Server POST /api/contacts");
+  console.log("\nPOST - req.body:\n", req.body);
 
-//   console.log("\nPOST - req.body:\n", req.body);
-//   const newContact = {
-//     id: req.body.id,
-//     name: req.body.name,
-//     address: req.body.address,
-//     mobile: req.body.mobile,
-//     work: req.body.work,
-//     home: req.body.home,
-//     email: req.body.email,
-//     twitter: req.body.twitter,
-//     instagram: req.body.instagram,
-//     github: req.body.github
-//   }
-//   console.log("\nnewContact:\n", newContact);
-//   // Contacts
-//   //   .forge(newContact
-//   //     .save()
-//   //     .then(() => {
-//   //       res.redirect('/');
-//   //     })
-//   //     .catch(err => {
-//   //       console.log('POST - adding new contact', err)
-//   //     })
-// })
+  const newContact = {
+    name: req.body.name,
+    address: req.body.address,
+    mobile: req.body.mobile,
+    work: req.body.work,
+    home: req.body.home,
+    email: req.body.email,
+    twitter: req.body.twitter,
+    instagram: req.body.instagram,
+    github: req.body.github,
+    created_by: 1
+  }
+  console.log("\nnewContact:\n", newContact);
 
-// //GET - /api/contacts/:id - respond w/ the contact that matches this id
-// app.get('/api/contacts/:id', (req, res) => {
-//   console.log("--> Server GET /api/contacts/:id");
-//   res.json("--> Server GET /api/contacts/:id");
-// })
+  Contacts
+    .forge(newContact)
+    .save()
+    .then((results) => {
+      console.log("\nPOST - New Contact added!");
+      res.json(results);
+    })
+    .catch(err => {
+      console.log("\nPOST /api/contacts - ERROR");
+      res.json("Unable to add new contact");
+    })
+})
+
+//GET - /api/contacts/:id - respond w/ the contact that matches this id
+app.get('/api/contacts/:id', (req, res) => {
+  console.log("\n--> Server GET /api/contacts/:id");
+  console.log("\nGET - Requested contact id:", req.params);
+
+  const { id } = req.params;
+  console.log("\nCheck id:", id);
+
+  Contacts
+    .where("id", id)
+    .fetch()
+    .then(requestedContact => {
+      console.log("\nGET - Requested contact:\n", requestedContact);
+      res.json(requestedContact);
+    })
+    .catch(err => {
+      console.log("\nGET /api/contacts/:id - ERROR");
+      res.json("Unable to get requested contact");
+    })
+})
 
 // //PUT - /api/contacts/:id - update & respond w/updated contact
 // app.put('/api/contacts/:id', (req, res) => {
