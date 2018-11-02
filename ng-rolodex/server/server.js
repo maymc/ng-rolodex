@@ -252,11 +252,26 @@ app.put('/api/contacts/:id', (req, res) => {
     })
 })
 
-// //DELETE - /api/contacts/:id - delete contact that matches given id, respond with Status 200 OK
-// app.delete('/api/contacts/:id', (req, res) => {
-//   console.log("--> Server DELETE /api/contacts/:id");
-//   res.json("--> Server DELETE /api/contacts/:id");
-// })
+//DELETE - /api/contacts/:id - delete contact that matches given id, respond with Status 200 OK
+app.delete('/api/contacts/:id', (req, res) => {
+  console.log("--> Server DELETE /api/contacts/:id");
+  console.log("\nDELETE - req.params:", req.params);
+
+  const { id } = req.params;
+  console.log("\nCheck id:", id);
+
+  Contacts
+    .where("id", id)
+    .destroy()
+    .then(() => {
+      console.log("Deleted Contact!");
+      res.json("Contact has been deleted.");
+    })
+    .catch(err => {
+      console.log("\nDELETE /api/contacts/:id - ERROR");
+      res.json("Unable to delete contact");
+    })
+})
 
 
 
