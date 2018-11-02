@@ -53,7 +53,7 @@ export class LoginComponent {
     if (!this.formData.password) {
       this.validPassword = false;
     }
-    else if (this.formData.password.length < 8) {
+    else if (this.formData.password.length < 4) {
       this.validPassword = false;
     }
     else {

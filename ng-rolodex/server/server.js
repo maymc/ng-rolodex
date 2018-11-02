@@ -41,7 +41,6 @@ app.get('/api/profile/user/:id', (req, res) => {
 //PUT - /api/users/user/:id - edit current user acct info
 app.put('/api/users/user/:id', (req, res) => {
   console.log("\n--> Server PUT /api/users/user/:id");
-  // res.json("--> Server PUT /api/users/user/:id");
   console.log("PUT - req.params:", req.params);
   console.log("\nPUT - req.body:\n", req.body);
 
@@ -61,6 +60,7 @@ app.put('/api/users/user/:id', (req, res) => {
     .then(userData => {
       console.log("\nPUT - userData:\n", userData);
       userData.save(updatedUser);
+      res.json(userData);
     })
     .catch(err => {
       console.log("Backend - PUT /api/users/user/:id - ERROR");
@@ -68,11 +68,37 @@ app.put('/api/users/user/:id', (req, res) => {
     })
 })
 
-// //POST - /api/login - log in user
-// app.post('/api/login', (req, res) => {
-//   console.log("--> Server POST /api/login");
-//   res.json("--> Server POST /api/login");
-// })
+//POST - /api/login - log in user
+app.post('/api/login', (req, res) => {
+  console.log("\n--> Server POST /api/login");
+  console.log("\nPOST - req.body:\n", req.body);
+
+  const checkUser = {
+    username: req.body.username,
+    password: req.body.password
+  }
+
+  console.log("\n User to check for in DB:\n", checkUser);
+
+  Users
+    .where("username", checkUser.username)
+    .fetch()
+    .then(results => {
+      console.log("\nCheck results:\n", results);
+      if (results === null) {
+        console.log("\nLOGIN ERROR - User does not exist. Cannot log in.");
+        res.json(results);
+      }
+      else {
+        console.log("\nUser exists. User can log in.");
+        res.json(results);
+      }
+    })
+    .catch(err => {
+      console.log("Backend - POST /api/login - ERROR");
+      res.json("Unable to log in user");
+    })
+})
 
 // //POST - /api/logout - log out user
 // app.post('/api/logout', (req, res) => {
