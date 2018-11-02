@@ -15,114 +15,113 @@ const Contacts = require('./db/models/contacts_table.js');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//Routes
-//GET /api/profile?user=:id - respond with current user's profile
-app.get('/api/profile?user=:id', (req, res) => {
-  console.
+//~~~~~~Routes~~~~~~~~~//
+
+//GET - /api/profile?user=:id - respond w/current user's profile
+app.get('/api/profile/user/:id', (req, res) => {
+  console.log("\n--> Server GET /api/profile/user/:id");
+  console.log("\nreq.body:", req.params);
+  // res.json("--> Server GET /api/profile/user/:id");
+
+  const { id } = req.params;
+  console.log("\nid:", id);
+
+  Users
+    .where('id', id)
+    .fetch()
+    .then(userData => {
+      console.log("\nGET userData:\n", userData);
+      res.json(userData);
+    })
+    .catch(err => {
+      console.log("\nBackend GET /api/profile/user/:id - ERROR");
+      res.json("Unable to get user data");
+    })
 })
 
-//GET /tasks - get all tasks in Tasks table in the DB and send requested data back to client
-// app.get('/tasks', (req, res) => {
-//   console.log("--> Backend GET /tasks");
-//   Tasks
-//     .fetchAll()
-//     .then(tasks => {
-//       res.json(tasks.serialize())
-//     })
-//     .catch(err => {
-//       console.log('error', err)
-//     })
+// //PUT - /api/users?user=:id - edit current user acct info
+// app.put('/api/users?users=:id', (req, res) => {
+//   console.log("--> Server PUT /api/users?users=:id");
+//   res.json("--> Server PUT /api/users?users=:id");
 // })
 
-// //POST
-// app.post('/newTask', (req, res) => {
-//   console.log("---> Backend POST /newTask");
-//   console.log("\nreq.body:", req.body);
-
-//   const newTask = {
-//     title: req.body.title,
-//     body: req.body.body,
-//     priority: req.body.priority,
-//     status: req.body.status,
-//     createdBy: req.body.createdBy,
-//     assignedTo: req.body.assignedTo
-//   };
-
-//   console.log("\nNew task check:", newTask);
-
-//   Tasks
-//     .forge(newTask)
-//     .save()
-//     .then(() => {
-//       return Tasks.fetchAll()
-//     })
-//     .then(tasks => {
-//       res.json(tasks.serialize());
-//     })
-//     .catch(err => {
-//       console.log('POST - adding task error', err);
-//       res.json("NO WORKING");
-//     });
+// //POST - /api/login - log in user
+// app.post('/api/login', (req, res) => {
+//   console.log("--> Server POST /api/login");
+//   res.json("--> Server POST /api/login");
 // })
 
+// //POST - /api/logout - log out user
+// app.post('/api/logout', (req, res) => {
+//   console.log("--> Server POST /api/logout");
+//   res.json("--> Server POST /api/logout");
+// })
 
-// //PUT
-// app.put("/editTask", (req, res) => {
-//   console.log("\n---> Backend PUT /editTask");
-//   // console.log("\nBackend - PUT req.params:", req.params);
-//   console.log("\nBackend - PUT req.body:", req.body);
+// //POST - /api/register - register a new user with application
+// app.post('/api/register', (req, res) => {
+//   console.log("--> Server POST /api/register");
+//   res.json("--> Server POST /api/register");
+// })
 
-//   // const { id } = req.params;
-//   // console.log("\n Check id:", id);
+// //GET - /api/contacts?user=:id - respond w/ all contacts for the logged in user
+// app.get('/api/contacts?user=:id', (req, res) => {
+//   console.log("--> Server GET /api/contacts?user=:id");
+//   res.json("--> Server GET /api/contacts?user=:id");
+// })
 
-//   const updatedTask = {
-//     title: req.body.title,
-//     body: req.body.body,
-//     priority: req.body.priority,
-//     status: req.body.status,
-//     createdBy: req.body.createdBy,
-//     assignedTo: req.body.assignedTo
+// //GET - /api/contacts/search/:term?user=:id - respond w/all contacts that match the search term for this user
+// app.get('/api/contacts/search/:term?user=:id', (req, res) => {
+//   console.log("--> Server GET /api/contacts/search/:term?user=:id");
+//   res.json("--> Server GET /api/contacts/search/:term?user=:id");
+// })
+
+// //POST - /api/contacts - create & respond with a new contact
+// app.post('/api/contacts', (req, res) => {
+//   console.log("\n--> Server POST /api/contacts");
+//   res.json("--> Server POST /api/contacts");
+
+//   console.log("\nPOST - req.body:\n", req.body);
+//   const newContact = {
+//     id: req.body.id,
+//     name: req.body.name,
+//     address: req.body.address,
+//     mobile: req.body.mobile,
+//     work: req.body.work,
+//     home: req.body.home,
+//     email: req.body.email,
+//     twitter: req.body.twitter,
+//     instagram: req.body.instagram,
+//     github: req.body.github
 //   }
-
-//   Tasks
-//     .where('id', req.body.id)
-//     .fetch()
-//     .then(results => {
-//       console.log("\nBackend - PUT results:", results);
-//       results.save(updatedTask);
-//       return Tasks.fetchAll()
-//     })
-//     .then(tasks => {
-//       res.json(tasks.serialize());
-//     })
-//     .catch(err => {
-//       console.log("Backend PUT didn't work");
-//       res.json("FAILED");
-//     })
-
+//   console.log("\nnewContact:\n", newContact);
+//   // Contacts
+//   //   .forge(newContact
+//   //     .save()
+//   //     .then(() => {
+//   //       res.redirect('/');
+//   //     })
+//   //     .catch(err => {
+//   //       console.log('POST - adding new contact', err)
+//   //     })
 // })
 
-// //DELETE
-// app.put("/deleteTask", (req, res) => {
-//   console.log("\n---> Backend DELETE /deleteTask");
-//   console.log("\nBackend - DELETE req.body:", req.body);
-//   Tasks
-//     .where("id", req.body.id)
-//     .destroy()
-//     .then(() => {
-//       console.log("\nDelete is working!!");
-//       return Tasks.fetchAll()
-//     })
-//     .then(tasks => {
-//       res.json(tasks.serialize());
-//     })
-//     .catch(err => {
-//       console.log('error, err');
-//     })
+// //GET - /api/contacts/:id - respond w/ the contact that matches this id
+// app.get('/api/contacts/:id', (req, res) => {
+//   console.log("--> Server GET /api/contacts/:id");
+//   res.json("--> Server GET /api/contacts/:id");
 // })
 
+// //PUT - /api/contacts/:id - update & respond w/updated contact
+// app.put('/api/contacts/:id', (req, res) => {
+//   console.log("--> Server PUT /api/contacts/:id");
+//   res.json("--> Server PUT /api/contacts/:id");
+// })
 
-
+// //DELETE - /api/contacts/:id - delete contact that matches given id, respond with Status 200 OK
+// app.delete('/api/contacts/:id', (req, res) => {
+//   console.log("--> Server DELETE /api/contacts/:id");
+//   res.json("--> Server DELETE /api/contacts/:id");
+// })
 
 
 
