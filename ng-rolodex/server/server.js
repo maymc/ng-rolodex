@@ -17,14 +17,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //~~~~~~Routes~~~~~~~~~//
 
-//GET - /api/profile?user=:id - respond w/current user's profile
+//GET - /api/profile/user/:id - respond w/current user's profile
 app.get('/api/profile/user/:id', (req, res) => {
   console.log("\n--> Server GET /api/profile/user/:id");
-  console.log("\nreq.body:", req.params);
-  // res.json("--> Server GET /api/profile/user/:id");
+  console.log("\nGET - req.params:", req.params);
 
   const { id } = req.params;
-  console.log("\nid:", id);
+  console.log("\nCheck id:", id);
 
   Users
     .where('id', id)
@@ -35,15 +34,39 @@ app.get('/api/profile/user/:id', (req, res) => {
     })
     .catch(err => {
       console.log("\nBackend GET /api/profile/user/:id - ERROR");
-      res.json("Unable to get user data");
+      res.json("Unable to get user data.");
     })
 })
 
-// //PUT - /api/users?user=:id - edit current user acct info
-// app.put('/api/users?users=:id', (req, res) => {
-//   console.log("--> Server PUT /api/users?users=:id");
-//   res.json("--> Server PUT /api/users?users=:id");
-// })
+//PUT - /api/users/user/:id - edit current user acct info
+app.put('/api/users/user/:id', (req, res) => {
+  console.log("\n--> Server PUT /api/users/user/:id");
+  // res.json("--> Server PUT /api/users/user/:id");
+  console.log("PUT - req.params:", req.params);
+  console.log("\nPUT - req.body:\n", req.body);
+
+  const { id } = req.params;
+  console.log("\nCheck id:", id);
+
+  const updatedUser = {
+    username: req.body.username,
+    name: req.body.name,
+    email: req.body.email,
+    address: req.body.address
+  }
+
+  Users
+    .where('id', id)
+    .fetch()
+    .then(userData => {
+      console.log("\nPUT - userData:\n", userData);
+      userData.save(updatedUser);
+    })
+    .catch(err => {
+      console.log("Backend - PUT /api/users/user/:id - ERROR");
+      res.json("Unable to update user data");
+    })
+})
 
 // //POST - /api/login - log in user
 // app.post('/api/login', (req, res) => {
