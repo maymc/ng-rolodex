@@ -8,13 +8,18 @@ const bodyParser = require("body-parser");
 // const RedisStore = require('connect-redis')(session);
 
 //Import in the Tasks model
-// const Tasks = require('./db/models/tasks_table.js');
+const Users = require('./db/models/users_table.js');
+const Contacts = require('./db/models/contacts_table.js');
 
 //Returns already parsed info/object as "req.body"
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //Routes
+//GET /api/profile?user=:id - respond with current user's profile
+app.get('/api/profile?user=:id', (req, res) => {
+  console.
+})
 
 //GET /tasks - get all tasks in Tasks table in the DB and send requested data back to client
 // app.get('/tasks', (req, res) => {
