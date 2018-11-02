@@ -135,11 +135,27 @@ app.post('/api/register', (req, res) => {
 
 })
 
-// //GET - /api/contacts?user=:id - respond w/ all contacts for the logged in user
-// app.get('/api/contacts?user=:id', (req, res) => {
-//   console.log("--> Server GET /api/contacts?user=:id");
-//   res.json("--> Server GET /api/contacts?user=:id");
-// })
+//GET - /api/contacts/user/:id - respond w/ all contacts for the logged in user
+app.get('/api/contacts/user/:id', (req, res) => {
+  console.log("\n--> Server GET /api/contacts/user/:id");
+  console.log("\nreq.params:", req.params);
+
+  const { id } = req.params;
+
+  console.log("\nCheck id:", id);
+
+  Contacts
+    .where("created_by", id)
+    .fetchAll()
+    .then(allContacts => {
+      console.log("\nGET - Logged-In user contacts:\n", allContacts.models);
+      res.json(allContacts.serialize());
+    })
+    .catch(err => {
+      console.log("\nGET /api/contacts/user/:id - ERROR");
+      res.json("Unable to get user's contacts");
+    })
+})
 
 // //GET - /api/contacts/search/:term?user=:id - respond w/all contacts that match the search term for this user
 // app.get('/api/contacts/search/:term?user=:id', (req, res) => {
