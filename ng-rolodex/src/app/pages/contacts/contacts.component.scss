@@ -3,7 +3,7 @@
   flex-flow: row wrap;
   width: 100%;
   margin: auto;
-  border: 1px solid rgb(62, 149, 175);
+  // border: 1px solid rgb(62, 149, 175);
 }
 
 .contactPage-header{
@@ -17,9 +17,10 @@ h1{
   font-weight: 300px;
 }
 
-.charName{
+.contactName{
   font-size: 1.2em;
   margin: 5px 0 5px 0;
+  border-bottom: 1px dotted black;
 }
 
 .contactCard{
@@ -31,8 +32,4 @@ h1{
   font-family: 'Rajdhani', sans-serif;
   background-color: #d0f0ff;
   box-shadow: 0 4px 8px 0 grey;
-}
-
-.charName{
-  border-bottom: 1px dotted black;
 }
