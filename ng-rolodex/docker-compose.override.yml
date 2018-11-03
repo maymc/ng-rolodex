@@ -9,6 +9,7 @@ services:
     container_name: ng-rolodex
     volumes:
       - ".:/app/:rw"
+      - "./app/node_modules"
     env_file: .env
     environment:
       NODE_ENV: development
