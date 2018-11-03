@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
   formData: { searchInput: string } = { searchInput: '' }
 
   allContacts: any;
+  value: '';
 
   //created a backend service and bringing it into this component to use
   constructor(private backend: BackendService) {
@@ -35,8 +36,12 @@ export class HomeComponent implements OnInit {
       })
   }
 
-  submit() {
+  search() {
     console.log(this.formData);
+  }
+
+  onKey(event: KeyboardEvent) {
+    this.value += (<HTMLInputElement>event.target).value + ' | ';
   }
 
 }

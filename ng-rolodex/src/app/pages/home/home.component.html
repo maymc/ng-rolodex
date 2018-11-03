@@ -2,13 +2,14 @@
   <p>{{message}}</p>
 
   <form action="">
-    <input type="text" name="searchInput" autofocus [(ngModel)]="formData.searchInput">
+    <input type="text" name="searchInput" autofocus [(ngModel)]="formData.searchInput" #box (keyup)="0">
   </form>
 
-  {{formData.searchInput}}
+  <!-- {{formData.searchInput}} -->
+  <p>{{box.value}}</p>
 
   <br>
-  <button (click)="submit()">Search</button>
+  <button (click)="search()">Search</button>
 </div>
 
 <div *ngFor="let char of characters">
