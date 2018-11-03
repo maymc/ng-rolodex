@@ -37,3 +37,28 @@ button{
 button:hover {
   background-color: rgb(114, 187, 209);
 }
+
+.filteredContacts{
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  margin: 0;
+}
+
+.contactName{
+  font-size: 1.2em;
+  margin: 5px 0 5px 0;
+  border-bottom: 1px dotted black;
+}
+
+.contactCard{
+  border-left: 3px solid rgb(62, 149, 175);
+  width: 300px;
+  height: 250px;
+  margin: 10px;
+  padding: 10px;
+  // border-radius: 5px;
+  font-family: 'Rajdhani', sans-serif;
+  background-color: #d0f0ff;
+  box-shadow: 0 4px 8px 0 grey;
+}

@@ -14,3 +14,18 @@
 <div *ngFor="let char of characters">
   {{char.name}}
 </div>
+
+<div class="filteredContacts">
+  <div class="contactCard" *ngFor="let contact of allContacts">
+    <p class="contactName">{{contact.name}}</p>
+    address: {{contact.address}}<br>
+    mobile: {{contact.mobile}}<br>
+    work: {{contact.work}}<br>
+    home: {{contact.home}}<br>
+    email: {{contact.email}}<br>
+    twitter: {{contact.twitter}}<br>
+    instagram: {{contact.instagram}}<br>
+    github: {{contact.github}}<br>
+  </div>
+
+</div>

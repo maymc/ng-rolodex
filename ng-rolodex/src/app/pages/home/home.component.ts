@@ -11,13 +11,9 @@ export class HomeComponent implements OnInit {
 
   message: string = "Search for a contact...";
 
-  formData: {
-    searchInput: string,
-  } = {
-      searchInput: '',
-    }
+  formData: { searchInput: string } = { searchInput: '' }
 
-  characters: any[];
+  allContacts: any;
 
   //created a backend service and bringing it into this component to use
   constructor(private backend: BackendService) {
@@ -27,15 +23,16 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
 
     //when component first starts, asks if can get this array and puts it into my copy of empoty characters. The two empty arrays are the same thing. Component and service both see any changes
-    // this.characters = this.backend.characters;
+    this.allContacts = this.backend.allContacts;
 
-    // this.backend.addCharacter({ name: 'may' });
-    // this.characters.push({ name: 'bob' });
-
-    // this.backend.getPeople(3)
-    //   .then(data => {
-    //     console.log("getPeople - data:", data);
-    //   })
+    this.backend.getAllContacts(1)
+      .then(results => {
+        console.log("results:", results);
+        this.allContacts = results;
+      })
+      .catch(err => {
+        console.log("GET - allContacts - error:", err);
+      })
   }
 
   submit() {
