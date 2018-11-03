@@ -14,16 +14,16 @@
     eye color: {{char.eye_color}}
   </div> -->
 
-  <div class="contactCard" *ngFor="let char of contacts">
-    <p class="charName">{{char.name}}</p>
-    address: {{char.address}}<br>
-    mobile: {{char.mobile}}<br>
-    work: {{char.work}}<br>
-    home: {{char.home}}<br>
-    email: {{char.email}}<br>
-    twitter: {{char.twitter}}<br>
-    instagram: {{char.instagram}}<br>
-    github: {{char.github}}<br>
+  <div class="contactCard" *ngFor="let contact of allContacts">
+    <p class="contactName">{{contact.name}}</p>
+    address: {{contact.address}}<br>
+    mobile: {{contact.mobile}}<br>
+    work: {{contact.work}}<br>
+    home: {{contact.home}}<br>
+    email: {{contact.email}}<br>
+    twitter: {{contact.twitter}}<br>
+    instagram: {{contact.instagram}}<br>
+    github: {{contact.github}}<br>
   </div>
 
 

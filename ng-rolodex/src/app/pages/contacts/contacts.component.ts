@@ -11,16 +11,16 @@ export class ContactsComponent implements OnInit {
   title: string = "Contacts";
 
   // characters: any[];
-  contacts: any[];
+  allContacts: any;
 
   constructor(private backend: BackendService) {
 
   }
 
   ngOnInit() {
-    this.contacts = this.backend.contacts;
-    console.log("FRONT - this.contacts:", this.contacts);
-    console.log("FRONT - this.backend.contacts:", this.backend.contacts);
+    this.allContacts = this.backend.allContacts;
+    console.log("FRONT - this.allContacts:", this.allContacts);
+    console.log("FRONT - this.backend.contacts:", this.backend.allContacts);
 
     // this.backend.addPeople({ name: 'may' });
     // this.characters.push({ name: 'bob' });
@@ -33,10 +33,17 @@ export class ContactsComponent implements OnInit {
     //     })
     // }
 
-    this.backend.getAllContacts();
+    this.backend.getAllContacts(1)
+      .then(results => {
+        console.log("results:", results);
+        this.allContacts = results;
+      })
+      .catch(err => {
+        console.log("GET - allContacts - error:", err);
+      })
 
-    this.contacts.forEach(element => {
-      console.log("Contact:", element);
-    })
+    // this.contacts.forEach(element => {
+    //   console.log("Contact:", element);
+    // })
   }
 }

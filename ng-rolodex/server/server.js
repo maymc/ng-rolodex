@@ -4,6 +4,7 @@ const express = require("express");
 const app = express();
 const PORT = process.env.EXPRESS_CONTAINER_PORT || 7000;
 const bodyParser = require("body-parser");
+const cors = require("cors");
 // const session = require('express-session');
 // const RedisStore = require('connect-redis')(session);
 
@@ -14,6 +15,7 @@ const Contacts = require('./db/models/contacts_table.js');
 //Returns already parsed info/object as "req.body"
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
 
 //~~~~~~Routes~~~~~~~~~//
 
