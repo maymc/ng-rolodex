@@ -10,12 +10,9 @@ import { BackendService } from '../../services/backend.services';
 export class ContactsComponent implements OnInit {
   title: string = "Contacts";
 
-  // characters: any[];
   allContacts: any;
 
-  constructor(private backend: BackendService) {
-
-  }
+  constructor(private backend: BackendService) { }
 
   ngOnInit() {
     this.allContacts = this.backend.allContacts;

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { BackendService } from '../../services/backend.services';
 
 @Component({
   selector: 'profile-page',
@@ -6,23 +7,33 @@ import { Component } from '@angular/core';
   styleUrls: ['./profile.component.scss']
 })
 
-export class ProfileComponent {
+export class ProfileComponent implements OnInit {
   title: string = 'Welcome to your profile!';
-  username: string = 'maymc';
-  name: string = 'May';
-  email: string = 'maychen@hawaii.edu';
-  address: string = '1234 SomeAddress St.';
+  username: string;
+  name: string;
+  email: string;
+  address: string;
+  userData: any;
 
-  constructor() {
+  constructor(private backend: BackendService) { }
+
+  ngOnInit() {
+    this.backend.getUserProfile(1)
+      .then(results => {
+        console.log("results:", results);
+        this.username = results["username"];
+        // console.log("check username:", this.username);
+        this.name = results["name"];
+        this.email = results["email"];
+        this.address = results["address"];
+
+      })
 
   }
-
   editProfile() {
     console.log(this.username);
     console.log(this.name);
     console.log(this.email);
     console.log(this.address);
-
-
   }
 }

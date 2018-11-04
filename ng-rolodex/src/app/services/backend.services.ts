@@ -15,19 +15,20 @@ export class BackendService {
   //array of anything
   allContacts: any[] = [];
 
-  constructor(private http: HttpClient) {
 
-  }
-
-  getPeople(id: number) {
-    const url = this.baseUrl + 'people/' + id + '/';
-    return this.http.get(url).toPromise();
-  }
+  constructor(private http: HttpClient) { }
 
   getAllContacts(id: number) {
     console.log("\nbackend - getAllContacts");
     console.log("id:", id);
     const url = this.baseUrl + '/api/contacts/user/' + id;
+    return this.http.get(url).toPromise();
+  }
+
+  getUserProfile(id: number) {
+    console.log("\nbackend - getUserProfile");
+    console.log("id:", id);
+    const url = this.baseUrl + '/api/profile/user/' + id;
     return this.http.get(url).toPromise();
   }
 
@@ -40,6 +41,9 @@ export class BackendService {
   }
 
   logout() {
+    console.log("\nbackend - logout");
+    const url = this.baseUrl + '/api/logout';
+    // return this.http.post(url).toPromise();
     return Promise.resolve({});
   }
 

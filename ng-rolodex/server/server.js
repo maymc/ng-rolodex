@@ -121,11 +121,11 @@ app.post('/api/login', (req, res) => {
     })
 })
 
-// //POST - /api/logout - log out user
-// app.post('/api/logout', (req, res) => {
-//   console.log("\n--> Server POST /api/logout");
-
-// })
+//POST - /api/logout - log out user
+app.post('/api/logout', (req, res) => {
+  console.log("\n--> Server POST /api/logout");
+  res.redirect("/login");
+})
 
 //POST - /api/register - register a new user with application
 app.post('/api/register', (req, res) => {
