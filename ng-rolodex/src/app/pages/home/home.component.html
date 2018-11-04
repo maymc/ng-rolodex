@@ -2,11 +2,11 @@
   <p>{{message}}</p>
 
   <form action="">
-    <input type="text" name="searchInput" autofocus [(ngModel)]="formData.searchInput" #box (keyup)="0">
+    <input type="text" name="searchInput" (keyup)="onKey($event)" autofocus [(ngModel)]="formData.searchInput">
   </form>
 
-  <!-- {{formData.searchInput}} -->
-  <p>{{box.value}}</p>
+  {{formData.searchInput}}
+  <p>{{values}}</p>
 
   <br>
   <button (click)="search()">Search</button>
