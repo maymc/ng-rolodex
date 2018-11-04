@@ -14,7 +14,6 @@ export class HomeComponent implements OnInit {
   formData: { searchInput: string } = { searchInput: '' }
 
   allContacts: any;
-  values: "";
 
   //created a backend service and bringing it into this component to use
   constructor(private backend: BackendService) {
@@ -40,8 +39,29 @@ export class HomeComponent implements OnInit {
     console.log(this.formData);
   }
 
-  onKey(event: any) { // without type info
-    this.values = event.target.value;
+  onKey(event: any) {
+    console.log("this.formData.searchInput:", this.formData.searchInput);
+
+    if (this.formData.searchInput) {
+      let filteredContacts = this.allContacts.filter((element, index) => {
+        console.log("current element.name:", element.name);
+        return element.name.includes(this.formData.searchInput);
+      })
+
+      this.allContacts = filteredContacts;
+      console.log("new this.allContacts:", this.allContacts);
+    }
+    else if (this.formData.searchInput === "") {
+      this.backend.getAllContacts(1)
+        .then(results => {
+          console.log("results:", results);
+          this.allContacts = results;
+        })
+        .catch(err => {
+          console.log("GET - allContacts - error:", err);
+        })
+    }
+
   }
 
 }
