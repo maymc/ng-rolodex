@@ -38,35 +38,54 @@ app.get('/api/profile/user/:id', (req, res) => {
       console.log("\nBackend GET /api/profile/user/:id - ERROR");
       res.json("Unable to get user data.");
     })
+});
+
+//GET - /api/contacts/user/:id - respond w/ all contacts for the logged in user
+app.get('/api/contacts/user/:id', (req, res) => {
+  console.log("\n--> Server GET /api/contacts/user/:id");
+  console.log("\nreq.params:", req.params);
+
+  const { id } = req.params;
+
+  console.log("\nCheck id:", id);
+
+  Contacts
+    .where("created_by", id)
+    .fetchAll()
+    .then(allContacts => {
+      console.log("\nGET - Logged-In user contacts:\n", allContacts.models);
+      res.json(allContacts.serialize());
+    })
+    .catch(err => {
+      console.log("\nGET /api/contacts/user/:id - ERROR");
+      res.json("Unable to get user's contacts");
+    })
 })
 
-//PUT - /api/users/user/:id - edit current user acct info
-app.put('/api/users/user/:id', (req, res) => {
-  console.log("\n--> Server PUT /api/users/user/:id");
-  console.log("PUT - req.params:", req.params);
-  console.log("\nPUT - req.body:\n", req.body);
+// //GET - /api/contacts/search/:term?user=:id - respond w/all contacts that match the search term for this user
+// app.get('/api/contacts/search/:term?user=:id', (req, res) => {
+//   console.log("--> Server GET /api/contacts/search/:term?user=:id");
+//   res.json("--> Server GET /api/contacts/search/:term?user=:id");
+// })
+
+//GET - /api/contacts/:id - respond w/ the contact that matches this id
+app.get('/api/contacts/:id', (req, res) => {
+  console.log("\n--> Server GET /api/contacts/:id");
+  console.log("\nGET - Requested contact id:", req.params);
 
   const { id } = req.params;
   console.log("\nCheck id:", id);
 
-  const updatedUser = {
-    username: req.body.username,
-    name: req.body.name,
-    email: req.body.email,
-    address: req.body.address
-  }
-
-  Users
-    .where('id', id)
+  Contacts
+    .where("id", id)
     .fetch()
-    .then(userData => {
-      console.log("\nPUT - userData:\n", userData);
-      userData.save(updatedUser);
-      res.json(userData);
+    .then(requestedContact => {
+      console.log("\nGET - Requested contact:\n", requestedContact);
+      res.json(requestedContact);
     })
     .catch(err => {
-      console.log("Backend - PUT /api/users/user/:id - ERROR");
-      res.json("Unable to update user data");
+      console.log("\nGET /api/contacts/:id - ERROR");
+      res.json("Unable to get requested contact");
     })
 })
 
@@ -106,7 +125,6 @@ app.post('/api/login', (req, res) => {
 // app.post('/api/logout', (req, res) => {
 //   console.log("\n--> Server POST /api/logout");
 
-
 // })
 
 //POST - /api/register - register a new user with application
@@ -136,34 +154,6 @@ app.post('/api/register', (req, res) => {
     })
 
 })
-
-//GET - /api/contacts/user/:id - respond w/ all contacts for the logged in user
-app.get('/api/contacts/user/:id', (req, res) => {
-  console.log("\n--> Server GET /api/contacts/user/:id");
-  console.log("\nreq.params:", req.params);
-
-  const { id } = req.params;
-
-  console.log("\nCheck id:", id);
-
-  Contacts
-    .where("created_by", id)
-    .fetchAll()
-    .then(allContacts => {
-      console.log("\nGET - Logged-In user contacts:\n", allContacts.models);
-      res.json(allContacts.serialize());
-    })
-    .catch(err => {
-      console.log("\nGET /api/contacts/user/:id - ERROR");
-      res.json("Unable to get user's contacts");
-    })
-})
-
-// //GET - /api/contacts/search/:term?user=:id - respond w/all contacts that match the search term for this user
-// app.get('/api/contacts/search/:term?user=:id', (req, res) => {
-//   console.log("--> Server GET /api/contacts/search/:term?user=:id");
-//   res.json("--> Server GET /api/contacts/search/:term?user=:id");
-// })
 
 //POST - /api/contacts - create & respond with a new contact
 app.post('/api/contacts', (req, res) => {
@@ -197,24 +187,33 @@ app.post('/api/contacts', (req, res) => {
     })
 })
 
-//GET - /api/contacts/:id - respond w/ the contact that matches this id
-app.get('/api/contacts/:id', (req, res) => {
-  console.log("\n--> Server GET /api/contacts/:id");
-  console.log("\nGET - Requested contact id:", req.params);
+//PUT - /api/users/user/:id - edit current user acct info
+app.put('/api/users/user/:id', (req, res) => {
+  console.log("\n--> Server PUT /api/users/user/:id");
+  console.log("PUT - req.params:", req.params);
+  console.log("\nPUT - req.body:\n", req.body);
 
   const { id } = req.params;
   console.log("\nCheck id:", id);
 
-  Contacts
-    .where("id", id)
+  const updatedUser = {
+    username: req.body.username,
+    name: req.body.name,
+    email: req.body.email,
+    address: req.body.address
+  }
+
+  Users
+    .where('id', id)
     .fetch()
-    .then(requestedContact => {
-      console.log("\nGET - Requested contact:\n", requestedContact);
-      res.json(requestedContact);
+    .then(userData => {
+      console.log("\nPUT - userData:\n", userData);
+      userData.save(updatedUser);
+      res.json(userData);
     })
     .catch(err => {
-      console.log("\nGET /api/contacts/:id - ERROR");
-      res.json("Unable to get requested contact");
+      console.log("Backend - PUT /api/users/user/:id - ERROR");
+      res.json("Unable to update user data");
     })
 })
 
