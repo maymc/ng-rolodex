@@ -10,7 +10,8 @@ import { HttpClient } from '@angular/common/http';
 
 export class BackendService {
   // baseUrl: string = 'https://swapi.co/api/';
-  baseUrl: string = 'http://localhost:7000';
+  // baseUrl: string = 'http://localhost:7000';
+  baseUrl: string = 'http://34.213.38.28:7000';
 
   //array of anything
   // characters: any[] = [];
