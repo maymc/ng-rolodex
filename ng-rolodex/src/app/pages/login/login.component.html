@@ -14,9 +14,8 @@
     {{ loginFormData | json}}
   </form>
 
-  <button (click)="login()" class="btn-submit" [disabled]="isDisabled()">
+  <button routerLink="/" (click)="login()" class="btn-submit" [disabled]="isDisabled()">
     Login
   </button>
-
 
 </div>

@@ -41,5 +41,10 @@ export class ProfileComponent implements OnInit {
 
   saveProfile() {
     console.log("\nUpdating user profile...");
+    // this.backend.updateUserProfile(1)
+    //   .then(updatedUserData => {
+    //     console.log("updatedUserData:", updatedUserData);
+    //   })
+
   }
 }

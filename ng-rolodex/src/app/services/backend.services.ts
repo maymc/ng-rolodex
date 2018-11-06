@@ -2,6 +2,7 @@
 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 //Creates backend service
 @Injectable({
@@ -45,6 +46,12 @@ export class BackendService {
     console.log("id:", id);
     const url = this.baseUrl + '/api/contacts/user/' + id;
     return this.http.get(url).toPromise();
+  }
+
+  updateUserProfile(id: number) {
+    console.log("\nbackend-editUserProfile");
+    const url = this.baseUrl + '/api/users/user/' + id;
+    // return this.http.put(url).toPromise();
   }
 
 }
