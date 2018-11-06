@@ -15,6 +15,8 @@ export class ProfileComponent implements OnInit {
   address: string;
   userData: any;
 
+  isEditingProfile: boolean = false;
+
   constructor(private backend: BackendService) { }
 
   ngOnInit() {
@@ -26,14 +28,18 @@ export class ProfileComponent implements OnInit {
         this.name = results["name"];
         this.email = results["email"];
         this.address = results["address"];
-
       })
-
   }
+
   editProfile() {
     console.log(this.username);
     console.log(this.name);
     console.log(this.email);
     console.log(this.address);
+    this.isEditingProfile = true;
+  }
+
+  saveProfile() {
+    console.log("\nUpdating user profile...");
   }
 }

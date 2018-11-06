@@ -7,15 +7,15 @@ div{
   font-family: 'Rajdhani', sans-serif;
   // text-align: center;
   font-size: 1.1em;
-  width: 600px;
+  width: 550px;
   margin: auto;
 }
 
 #container {
   border-radius: 5px;
   background-color: #d0f0ff;
-  padding: 20px;
-  height: 300px;
+  padding: 30px;
+  height: 320px;
 }
 
 .rowHeader {
@@ -30,7 +30,7 @@ div{
 }
 
 input{
-  width: 100%;
+  width: 90%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -60,9 +60,17 @@ button{
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  float: right;
+  float: left;
   margin-top: 10px;
 }
 button:hover {
   background-color: rgb(114, 187, 209);
+}
+
+.userInfo{
+  margin-top: 5px;
+  padding: 0;
+  margin-left: 20px;
+  // border: 1px solid black;
+  display: inline-block;
 }

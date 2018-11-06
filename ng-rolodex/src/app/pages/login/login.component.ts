@@ -13,11 +13,9 @@ export class LoginComponent {
   formData: {
     username: string,
     password: string,
-    // class: string,
   } = {
       username: '',
       password: '',
-      // class: 'test',
     };
 
   validUsername: boolean = false;

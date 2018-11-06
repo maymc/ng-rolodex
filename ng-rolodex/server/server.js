@@ -19,6 +19,10 @@ app.use(cors());
 
 //~~~~~~Routes~~~~~~~~~//
 
+//GET - / - redirects to login page if user is not logged in
+//A successful login redirects to homepage, unsuccessful login shows login error on login page
+
+
 //GET - /api/profile/user/:id - respond w/current user's profile
 app.get('/api/profile/user/:id', (req, res) => {
   console.log("\n--> Server GET /api/profile/user/:id");

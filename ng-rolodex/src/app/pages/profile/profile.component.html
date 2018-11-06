@@ -8,7 +8,8 @@
           <label>username:</label>
         </div>
         <div class="rowData">
-          <input type="text" name="username" placeholder={{username}}>
+          <label *ngIf=!isEditingProfile class="userInfo">{{username}}</label>
+          <input *ngIf=isEditingProfile type="text" name="username" value={{username}}>
         </div>
       </div>
       <div class="row">
@@ -16,7 +17,8 @@
           <label>name:</label>
         </div>
         <div class="rowData">
-          <input type="text" name="name" placeholder={{name}}>
+          <label *ngIf=!isEditingProfile class="userInfo">{{name}}</label>
+          <input *ngIf=isEditingProfile type="text" name="name" value={{name}}>
         </div>
       </div>
       <div class="row">
@@ -24,7 +26,8 @@
           <label>email:</label>
         </div>
         <div class="rowData">
-          <input type="text" name="email" placeholder={{email}}>
+          <label *ngIf=!isEditingProfile class="userInfo">{{email}}</label>
+          <input *ngIf=isEditingProfile type="text" name="email" value={{email}}>
         </div>
       </div>
       <div class="row">
@@ -32,12 +35,14 @@
           <label>address:</label>
         </div>
         <div class="rowData">
-          <input type="text" name="address" placeholder={{address}}>
+          <label *ngIf=!isEditingProfile class="userInfo">{{address}}</label>
+          <input *ngIf=isEditingProfile type="text" name="address" value={{address}}>
         </div>
       </div>
 
     </form>
-    <button (click)="editProfile()">Edit Profile</button>
+    <button *ngIf=!isEditingProfile (click)="editProfile()">Edit Profile</button>
+    <button *ngIf=isEditingProfile (click)="saveProfile()">Save</button>
   </div>
 
 
