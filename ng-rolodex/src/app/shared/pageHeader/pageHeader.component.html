@@ -8,7 +8,7 @@
     <ul>
       <li class="logged-in" *ngIf="isLoggedIn()">
         Welcome {{user.username}} !
-        <button (click)="logout()">Log Out</button>
+        <button routerLink="/login" (click)="logout()">Log Out</button>
       </li>
       <br>
       <li *ngIf="isLoggedIn()"><a routerLink="/">Home</a></li>
