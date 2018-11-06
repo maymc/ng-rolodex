@@ -22,6 +22,7 @@ import { BackendService } from './services/backend.services';
 import { SessionService } from './services/session.services';
 import { AuthService } from './services/auth.services';
 import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
+import { ContactDetailsComponent } from './pages/contact-details/contact-details.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { EditProfileComponent } from './pages/edit-profile/edit-profile.componen
     CreateContactComponent,
     ProfileComponent,
     EditProfileComponent,
+    ContactDetailsComponent,
   ],
   imports: [
     BrowserModule,

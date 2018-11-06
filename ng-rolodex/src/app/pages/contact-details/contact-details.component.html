@@ -1,0 +1,84 @@
+<div>
+  <h1>{{name}}'s {{title}}</h1>
+
+  <div id="container">
+    <form action="">
+      <div class="row">
+        <div class="rowHeader">
+          <label>address:</label>
+        </div>
+        <div class="rowData">
+          <label *ngIf=!isEditingContact class="contactInfo">{{address}}</label>
+          <input *ngIf=isEditingContact type="text" name="address" value={{address}}>
+        </div>
+      </div>
+      <div class="row">
+        <div class="rowHeader">
+          <label>mobile:</label>
+        </div>
+        <div class="rowData">
+          <label *ngIf=!isEditingContact class="contactInfo">{{mobile}}</label>
+          <input *ngIf=isEditingContact type="text" name="mobile" value={{mobile}}>
+        </div>
+      </div>
+      <div class="row">
+        <div class="rowHeader">
+          <label>work</label>
+        </div>
+        <div class="rowData">
+          <label *ngIf=!isEditingContact class="contactInfo">{{work}}</label>
+          <input *ngIf=isEditingContact type="text" name="work" value={{work}}>
+        </div>
+      </div>
+      <div class="row">
+        <div class="rowHeader">
+          <label>home:</label>
+        </div>
+        <div class="rowData">
+          <label *ngIf=!isEditingContact class="contactInfo">{{home}}</label>
+          <input *ngIf=isEditingContact type="text" name="home" value={{home}}>
+        </div>
+      </div>
+      <div class="row">
+        <div class="rowHeader">
+          <label>email:</label>
+        </div>
+        <div class="rowData">
+          <label *ngIf=!isEditingContact class="contactInfo">{{email}}</label>
+          <input *ngIf=isEditingContact type="text" name="email" value={{email}}>
+        </div>
+      </div>
+      <div class="row">
+        <div class="rowHeader">
+          <label>twitter:</label>
+        </div>
+        <div class="rowData">
+          <label *ngIf=!isEditingContact class="contactInfo">{{twitter}}</label>
+          <input *ngIf=isEditingContact type="text" name="twitter" value={{twitter}}>
+        </div>
+      </div>
+      <div class="row">
+        <div class="rowHeader">
+          <label>instagram:</label>
+        </div>
+        <div class="rowData">
+          <label *ngIf=!isEditingContact class="contactInfo">{{instagram}}</label>
+          <input *ngIf=isEditingContact type="text" name="instagram" value={{instagram}}>
+        </div>
+      </div>
+      <div class="row">
+        <div class="rowHeader">
+          <label>github:</label>
+        </div>
+        <div class="rowData">
+          <label *ngIf=!isEditingContact class="contactInfo">{{github}}</label>
+          <input *ngIf=isEditingContact type="text" name="github" value={{github}}>
+        </div>
+      </div>
+
+    </form>
+    <button *ngIf=isEditingContact (click)="saveProfile()">Save</button>
+  </div>
+
+
+</div>

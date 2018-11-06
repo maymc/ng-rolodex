@@ -48,6 +48,13 @@ export class BackendService {
     return this.http.get(url).toPromise();
   }
 
+  getContactDetails(id: number) {
+    console.log("\nbackend - getContactDetails");
+    console.log("id:", id);
+    const url = this.baseUrl + '/api/contacts/' + id;
+    return this.http.get(url).toPromise();
+  }
+
   updateUserProfile(id: number) {
     console.log("\nbackend-editUserProfile");
     const url = this.baseUrl + '/api/users/user/' + id;

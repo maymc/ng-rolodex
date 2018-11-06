@@ -14,7 +14,7 @@
     eye color: {{char.eye_color}}
   </div> -->
 
-  <div class="contactCard" *ngFor="let contact of allContacts">
+  <div (click)="getContactDetails()" class="contactCard" *ngFor="let contact of allContacts">
     <p class="contactName">{{contact.name}}</p>
     address: {{contact.address}}<br>
     mobile: {{contact.mobile}}<br>
@@ -24,8 +24,7 @@
     twitter: {{contact.twitter}}<br>
     instagram: {{contact.instagram}}<br>
     github: {{contact.github}}<br>
+    <p (click)="getContactDetails()" routerLink="/contactDetails">Edit Contact</p>
   </div>
-
-
 
 </div>

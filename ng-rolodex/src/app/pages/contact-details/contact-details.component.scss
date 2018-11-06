@@ -1,0 +1,73 @@
+h1{
+  text-align: center;
+}
+div{
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.1em;
+  width: 550px;
+  margin: auto;
+}
+
+#container {
+  border-radius: 5px;
+  background-color: #d0f0ff;
+  padding: 30px;
+  height: 100%;
+}
+
+.rowHeader {
+  float: left;
+  width: 20%;
+}
+
+.rowData {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+input{
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  font-size: 0.7em;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+button{
+  width: 20%;
+  font-size: 1em;
+  font-family: 'Rajdhani', sans-serif;
+  background-color: rgb(62, 149, 175);
+  color: white;
+  padding: 5px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: left;
+  margin-top: 10px;
+}
+button:hover {
+  background-color: rgb(114, 187, 209);
+}
+
+.contactInfo{
+  margin-top: 5px;
+  padding: 0;
+  margin-left: 20px;
+  // border: 1px solid black;
+  display: inline-block;
+}

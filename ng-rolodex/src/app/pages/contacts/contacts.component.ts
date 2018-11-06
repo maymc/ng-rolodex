@@ -11,6 +11,7 @@ export class ContactsComponent implements OnInit {
   title: string = "Contacts";
 
   allContacts: any;
+  isSelectedContact: boolean = false;
 
   constructor(private backend: BackendService) { }
 
@@ -18,17 +19,6 @@ export class ContactsComponent implements OnInit {
     this.allContacts = this.backend.allContacts;
     console.log("FRONT - this.allContacts:", this.allContacts);
     console.log("FRONT - this.backend.contacts:", this.backend.allContacts);
-
-    // this.backend.addPeople({ name: 'may' });
-    // this.characters.push({ name: 'bob' });
-
-    // for (let i = 0; i <= 10; i++) {
-    //   this.backend.getPeople(i)
-    //     .then(data => {
-    //       console.log("getPeople - data:", data);
-    //       this.characters.push(data);
-    //     })
-    // }
 
     this.backend.getAllContacts(1)
       .then(results => {
@@ -38,9 +28,16 @@ export class ContactsComponent implements OnInit {
       .catch(err => {
         console.log("GET - allContacts - error:", err);
       })
+  }
 
-    // this.contacts.forEach(element => {
-    //   console.log("Contact:", element);
-    // })
+  getContactDetails() {
+    console.log("testingggg");
+    this.backend.getContactDetails(1)
+      .then(results => {
+        console.log("results:", results);
+      })
+      .catch(err => {
+        console.log("GET - contactDetails - error:", err);
+      })
   }
 }
