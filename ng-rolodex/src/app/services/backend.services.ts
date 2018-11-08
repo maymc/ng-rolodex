@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 
 export class BackendService {
   // baseUrl: string = 'http://localhost:7000';
-  baseUrl: string = 'http://54.191.197.19:7000';
+  baseUrl: string = 'http://34.218.241.69:7000';
 
   //array of anything
   allContacts: any[] = [];

@@ -9,7 +9,7 @@
           <label>name:</label>
         </div>
         <div class="rowData">
-          <input type="text" name="name" placeholder="first last">
+          <input type="text" name="name" placeholder="enter your name" [(ngModel)]="formData.name">
         </div>
       </div>
 
@@ -18,7 +18,7 @@
           <label>address:</label>
         </div>
         <div class="rowData">
-          <input type="text" name="address" placeholder="street, city, zipcode">
+          <input type="text" name="address" placeholder="enter address" [(ngModel)]="formData.address">
         </div>
       </div>
 
@@ -27,7 +27,7 @@
           <label>mobile:</label>
         </div>
         <div class="rowData">
-          <input type="text" name="mobile" placeholder="phone">
+          <input type="text" name="mobile" placeholder="#" [(ngModel)]="formData.mobile">
         </div>
       </div>
 
@@ -36,7 +36,7 @@
           <label>work:</label>
         </div>
         <div class="rowData">
-          <input type="text" name="work" placeholder="phone">
+          <input type="text" name="work" placeholder="#" [(ngModel)]="formData.work">
         </div>
       </div>
 
@@ -45,7 +45,7 @@
           <label>home:</label>
         </div>
         <div class="rowData">
-          <input type="text" name="home" placeholder="phone">
+          <input type="text" name="home" placeholder="#" [(ngModel)]="formData.home">
         </div>
       </div>
 
@@ -54,7 +54,7 @@
           <label>email:</label>
         </div>
         <div class="rowData">
-          <input type="text" name="email" placeholder="email">
+          <input type="text" name="email" placeholder="enter your email" [(ngModel)]="formData.email">
         </div>
       </div>
 
@@ -63,7 +63,7 @@
           <label>twitter:</label>
         </div>
         <div class="rowData">
-          <input type="text" name="twitter" placeholder="@name">
+          <input type="text" name="twitter" placeholder="@name" [(ngModel)]="formData.twitter">
         </div>
       </div>
       <div class="row">
@@ -71,7 +71,7 @@
           <label>instagram:</label>
         </div>
         <div class="rowData">
-          <input type="text" name="instagram" placeholder="@name">
+          <input type="text" name="instagram" placeholder="@name" [(ngModel)]="formData.instagram">
         </div>
       </div>
       <div class="row">
@@ -79,7 +79,7 @@
           <label>github:</label>
         </div>
         <div class="rowData">
-          <input type="text" name="github" placeholder="@name">
+          <input type="text" name="github" placeholder="@name" [(ngModel)]="formData.github">
         </div>
       </div>
 

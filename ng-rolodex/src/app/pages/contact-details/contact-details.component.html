@@ -75,9 +75,9 @@
           <input *ngIf=isEditingContact type="text" name="github" value={{github}}>
         </div>
       </div>
-
+      <button routerLink="/contacts">Back</button>
+      <button *ngIf=isEditingContact (click)="saveProfile()">Save</button>
     </form>
-    <button *ngIf=isEditingContact (click)="saveProfile()">Save</button>
   </div>
 
 
